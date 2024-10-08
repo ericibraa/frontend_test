@@ -1,10 +1,20 @@
-# Nuxt 3 Minimal Starter
+FRONTEND TEST
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Environment Configuration
 
-## Setup
+Proyek ini menggunakan file `.env` untuk menyimpan Environment Configuration. Anda perlu membuat file `.env` di root proyek dan menambahkan variabel-variabel berikut agar aplikasi berjalan dengan baik.
 
-Make sure to install the dependencies:
+```plaintext
+# Contoh file .env
+
+# URL API untuk mendapatkan daftar game
+NUXT_GAMES=
+
+# URL API untuk mendapatkan detail game
+NUXT_DETAIL_GAMES=
+```
+
+Setelah itu lakukan instal
 
 ```bash
 # npm
@@ -55,21 +65,3 @@ yarn build
 # bun
 bun run build
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
