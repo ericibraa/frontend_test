@@ -2,7 +2,9 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 
-const { data, error } = await useFetch('https://www.mmobomb.com/api1/games', {
+const config = useRuntimeConfig();
+
+const { data, error } = await useFetch(config.public.games, {
     params: {
         platform: 'pc'
     }
@@ -34,7 +36,7 @@ const { data, error } = await useFetch('https://www.mmobomb.com/api1/games', {
                         <img class="w-full h-48 object-cover rounded-t-lg" :src="game.thumbnail" :alt="game.title">
                         <div class="p-3">
                             <h3 class="text-lg font-bold text-gray-900 mb-2">{{ game.title }}</h3>
-                            <p class="text-sm text-gray-700 line-clamp-4 mb-4">
+                            <p class="text-sm text-gray-700 line-clamp-2 mb-4">
                                 {{ game.short_description }}
                             </p>
                             <div class="text-sm text-gray-600 mb-2">
@@ -56,13 +58,3 @@ const { data, error } = await useFetch('https://www.mmobomb.com/api1/games', {
 
     </div>
 </template>
-
-<style scoped>
-.line-clamp-4 {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-</style>

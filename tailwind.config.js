@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     "./components/**/*.{js,vue,ts}",
@@ -13,5 +16,17 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.line-clamp-2': {
+          overflow: 'hidden',
+          display: '-webkit-box',
+          '-webkit-line-clamp': '2',
+          '-webkit-box-orient': 'vertical',
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }),
   ],
 }

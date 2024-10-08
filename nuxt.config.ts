@@ -8,4 +8,10 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    public: {
+      games: process.env.NUXT_GAMES || "",
+      detail_game: process.env.NUXT_DETAIL_GAMES || "",
+    }
+  }
 })

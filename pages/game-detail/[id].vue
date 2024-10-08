@@ -2,14 +2,14 @@
 import { useRoute } from 'vue-router'
 
 const route = useRoute();
+const config = useRuntimeConfig();
 const gameId = route.params.id;
 
-const { data: gameDetail } = await useFetch('https://www.mmobomb.com/api1/game', {
+const { data: gameDetail } = await useFetch(config.public.detail_game, {
     params: {
         id: gameId
     }
 });
-
 </script>
 
 <template>
